@@ -4,6 +4,9 @@
 const Person = function (firstName, birthYear) {
   this.firstName = firstName;
   this.birthYear = birthYear;
+  function add() {
+    return 2 + 2;
+  }
 };
 
 const deividas = new Person('Deividas', 2000);
@@ -47,3 +50,4 @@ console.log(
 );
 
 console.log(deividas.__proto__);
+console.log(Person.prototype.constructor);
