@@ -32,6 +32,12 @@ deividas.calAge();
 
 mikas.calAge();
 
-console.log(deividas.__proto__);
+//console.log(deividas.__proto__);
 
 console.log(Person.prototype.isPrototypeOf(deividas));
+
+console.log(
+  '************* Prototypal inheritance and delegation <220>***********'
+);
+
+//theoretical stuff
