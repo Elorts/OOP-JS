@@ -41,3 +41,9 @@ console.log(
 );
 
 //theoretical stuff
+
+console.log(
+  '************* Prototypal inheritance on built-in objects <220>***********'
+);
+
+console.log(deividas.__proto__);
