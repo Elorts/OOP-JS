@@ -111,8 +111,8 @@ console.log('* ES6 Classes /////// *');
 
 // class declarations
 class PersonCl {
-  constructor(firstName, birthYear) {
-    this.firstName = firstName;
+  constructor(fullName, birthYear) {
+    this.fullName = fullName;
     this.birthYear = birthYear;
   }
 
@@ -120,11 +120,33 @@ class PersonCl {
   calcAge() {
     console.log(2037 - this.birthYear);
   }
+
+  get age() {
+    return 30;
+  }
+
+// set property that already exists
+
+  set fullName(name) {
+    if (name.includes(' ')) this._fullName = name;
+    else alert('Not a full name!');
+  }
+
+  get fullName(){
+    return this._fullName;
+  }
 }
 
-const petras = new PersonCl('Petras', 1915);
+
+cosnt walter = new PersonCl('Walter', 1919)
+
+
+
+
+const petras = new PersonCl('Petras Matras', 1915);
 console.log(petras.__proto__);
 petras.calcAge();
+console.log('age:      ', petras.age);
 
 PersonCl.prototype.greet = function () {
   console.log(`Hey ${this.firstName}`);
@@ -136,3 +158,23 @@ petras.greet();
 // 1. not hoisted
 // 2. first class citizens
 // 3. executed in strict mode
+
+console.log('* Gettters and Setters /////// *');
+
+const account = {
+  owner: 'deividas',
+  movements: [200, 530, 120, 300],
+
+  get latest() {
+    return this.movements.slice(-1).pop();
+  },
+
+  set latest(mov) {
+    this.movements.push(mov);
+  },
+};
+
+console.log(account.latest);
+
+account.latest = 50;
+console.log(account.movements);
