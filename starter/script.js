@@ -51,3 +51,15 @@ console.log(
 
 console.log(deividas.__proto__);
 console.log(Person.prototype.constructor);
+
+const arr = [3, 5, 5, 9, 9, 8, 5];
+
+Array.prototype.customMethod = function () {
+  // Creating mathod inside object
+  return [...new Set(this)];
+};
+
+console.log(arr.customMethod());
+
+const h1 = document.querySelector('h1');
+console.dir(x => x + 1);
