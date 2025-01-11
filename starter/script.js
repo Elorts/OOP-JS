@@ -9,6 +9,13 @@ const Person = function (firstName, birthYear) {
 const deividas = new Person('Deividas', 2000);
 console.log(deividas);
 
+Person.hey = function () {
+  console.log('Hey there 🌛');
+};
+
+Person.hey();
+// deividas.hey(); <- not wrking!!!
+
 // 1. New empty {} object created
 // 2. function is called, this = {}
 // 3. {} linked to prototype
@@ -125,23 +132,25 @@ class PersonCl {
     return 30;
   }
 
-// set property that already exists
+  // set property that already exists
 
   set fullName(name) {
     if (name.includes(' ')) this._fullName = name;
     else alert('Not a full name!');
   }
 
-  get fullName(){
+  // instance method
+  get fullName() {
     return this._fullName;
+  }
+
+  // static metod
+  static hey() {
+    console.log('Hey there 🌛');
   }
 }
 
-
-cosnt walter = new PersonCl('Walter', 1919)
-
-
-
+const walter = new PersonCl('Walter Green', 1919);
 
 const petras = new PersonCl('Petras Matras', 1915);
 console.log(petras.__proto__);
@@ -151,6 +160,8 @@ console.log('age:      ', petras.age);
 PersonCl.prototype.greet = function () {
   console.log(`Hey ${this.firstName}`);
 };
+
+PersonCl.hey();
 
 petras.greet();
 
@@ -178,3 +189,7 @@ console.log(account.latest);
 
 account.latest = 50;
 console.log(account.movements);
+
+console.log('* Static metod /////// *');
+
+console.log(Number.parseFloat('11A'));
