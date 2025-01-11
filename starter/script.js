@@ -4,9 +4,6 @@
 const Person = function (firstName, birthYear) {
   this.firstName = firstName;
   this.birthYear = birthYear;
-  function add() {
-    return 2 + 2;
-  }
 };
 
 const deividas = new Person('Deividas', 2000);
@@ -106,3 +103,36 @@ bmw.accelerate();
 mercedes.brake();
 mercedes.brake();
 mercedes.brake();
+
+console.log('* ES6 Classes /////// *');
+
+// expressions
+//const PersonCl = class {};
+
+// class declarations
+class PersonCl {
+  constructor(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  }
+
+  // Methods will be added to .prototype property
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  }
+}
+
+const petras = new PersonCl('Petras', 1915);
+console.log(petras.__proto__);
+petras.calcAge();
+
+PersonCl.prototype.greet = function () {
+  console.log(`Hey ${this.firstName}`);
+};
+
+petras.greet();
+
+// Classes:
+// 1. not hoisted
+// 2. first class citizens
+// 3. executed in strict mode
