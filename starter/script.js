@@ -426,6 +426,7 @@ const maryte = new StudentCl('Maryte Melninkaite', 2020, 'KPSS History');
 maryte.introduce();
 maryte.calcAge();
 */
+/*
 console.log('~~~~ Inheritance Between "Classes": Object.create ~~~~');
 
 const PersonProto = {
@@ -456,3 +457,16 @@ const jay = Object.create(StudentProto);
 jay.init('Jay', 2010, 'Computer Science');
 jay.introduce();
 jay.calcAge();
+*/
+console.log('~~~ Another exmaple ~~~');
+
+class Account {
+  constructor(owner, currency, pin) {
+    this.owner = owner;
+    this.currency = currency;
+    this.pin = pin;
+  }
+}
+
+const acc1 = new Account('Deividas', 'EUR', 1111);
+console.log(acc1);
