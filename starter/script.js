@@ -416,6 +416,10 @@ class StudentCl extends PersonCl {
   introduce() {
     console.log(`My name is ${this.fullName} and I'm studying ${this.course}`);
   }
+
+  calcAge() {
+    console.log(`I'm ${2056 - this.birthYear}`);
+  }
 }
 
 const maryte = new StudentCl('Maryte Melninkaite', 2020, 'KPSS History');
