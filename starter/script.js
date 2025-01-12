@@ -533,14 +533,17 @@ class Account {
   // Public interface
   getMov() {
     return this.#mov;
+    // Not chanible
   }
 
   deposit(val) {
     this.#mov.push(val);
+    return this;
   }
 
   withdrawl(val) {
     this.deposit(-val);
+    return this;
   }
 
   #approveLoan(val) {
@@ -552,6 +555,7 @@ class Account {
       this.deposit(val);
       console.log(`Loan approved!`);
     }
+    return this;
   }
 
   static test() {
@@ -575,3 +579,8 @@ console.log(acc1.pin);
 
 // acc1.test();
 Account.test();
+
+console.log('~~~Chaining Methods~~~');
+
+acc1.deposit(300).withdrawl(100).requestLoan(250).withdrawl(50);
+console.log(acc1);
