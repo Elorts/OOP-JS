@@ -1,5 +1,5 @@
 'use strict';
-
+/*
 // Construction functions
 const Person = function (firstName, birthYear) {
   this.firstName = firstName;
@@ -242,6 +242,7 @@ class PersonCl {
     console.log(2037 - this.birthYear);
   }
 */
+/*
 console.log('@@@@@@@@@@@@@@@@@@@@@ coding challenge @@@@@@@@@');
 
 class Car {
@@ -280,3 +281,30 @@ console.log(' speed in mph: ', ford.speed);
 // ford.accelerate();
 
 // ford.brake();
+*/
+console.log('@@@@@@ Inheritance Between "Classes": Constructor Functions');
+
+const Person = function (firstName, birthYear) {
+  this.firstName = firstName;
+  this.birthYear = birthYear;
+};
+
+Person.prototype.calAge = function () {
+  console.log(1900 + this.birthYear);
+};
+
+const Student = function (firstName, birthYear, course) {
+  Person.call(this, firstName, birthYear);
+  this.course = course;
+};
+
+Student.prototype = Object.create(Person.prototype);
+
+Student.prototype.introduce = function () {
+  console.log(`My name is ${this.firstName} and I'm studying ${this.course}`);
+};
+
+const mike = new Student('Mike', 2058, 'Computer Science');
+console.log(mike);
+
+mike.introduce();
