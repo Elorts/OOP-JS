@@ -84,7 +84,7 @@ DATA CAR 2: 'Mercedes' going at 95 km/h
 
 GOOD LUCK 😀
 */
-
+/*
 const Car = function (make, speed) {
   this.make = make;
   this.speed = speed;
@@ -193,3 +193,18 @@ console.log(account.movements);
 console.log('* Static metod /////// *');
 
 console.log(Number.parseFloat('11A'));
+
+*/
+console.log('* Object.create /////// *');
+
+const PersonProto = {
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  },
+};
+
+const steven = Object.create(PersonProto);
+
+steven.name = 'Steven';
+steven.birthYear = 1889;
+steven.calcAge();
