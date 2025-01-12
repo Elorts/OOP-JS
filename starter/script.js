@@ -519,6 +519,7 @@ class Account {
   locale = navigator.locale;
   bank = 'Bankist';
   #mov = []; // Hidden!!!
+  #secret = 123;
   #pin;
   constructor(owner, currency, pin) {
     this.owner = owner;
@@ -564,7 +565,7 @@ class Account {
 }
 
 const acc1 = new Account('Deividas', 'EUR', 1111);
-console.log(acc1);
+console.log('just created: ', acc1);
 
 // acc1.mov.push(250);
 
