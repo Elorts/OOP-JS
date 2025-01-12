@@ -465,8 +465,27 @@ class Account {
     this.owner = owner;
     this.currency = currency;
     this.pin = pin;
+    this.mov = [];
+    this.locale = navigator.language;
+
+    console.log(`Thanks for opening account ${owner}!`);
+  }
+
+  // Public interface
+  deposit(val) {
+    this.mov.push(val);
+  }
+
+  withdrawl(val) {
+    this.deposit(-val);
   }
 }
 
 const acc1 = new Account('Deividas', 'EUR', 1111);
+console.log(acc1);
+
+// acc1.mov.push(250);
+
+acc1.deposit(250);
+acc1.withdrawl(150);
 console.log(acc1);
