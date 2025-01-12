@@ -458,7 +458,62 @@ jay.init('Jay', 2010, 'Computer Science');
 jay.introduce();
 jay.calcAge();
 */
+/*
 console.log('~~~ Another exmaple ~~~');
+
+class Account {
+  constructor(owner, currency, pin) {
+    this.owner = owner;
+    this.currency = currency;
+    this.pin = pin;
+    this.mov = [];
+    this.locale = navigator.language;
+
+    console.log(`Thanks for opening account ${owner}!`);
+  }
+
+  // Public interface
+  deposit(val) {
+    this.mov.push(val);
+  }
+
+  withdrawl(val) {
+    this.deposit(-val);
+  }
+
+  approveLoan(val) {
+    return true;
+  }
+
+  requestLoan(val) {
+    if (this.approveLoan(val)) {
+      this.deposit(val);
+      console.log(`Loan approved!`);
+    }
+  }
+}
+
+const acc1 = new Account('Deividas', 'EUR', 1111);
+console.log(acc1);
+
+// acc1.mov.push(250);
+
+acc1.deposit(250);
+acc1.withdrawl(150);
+acc1.requestLoan(1000);
+
+console.log(acc1);
+
+console.log(acc1.pin);
+
+*/
+console.log('~~~ Encapsulation: Private Class Fields and Methods ~~~');
+
+// 1. Public fields
+// 2. Private fields
+// 3. Public methods
+// 4. Private methods
+// STATIC version of these 4
 
 class Account {
   constructor(owner, currency, pin) {
