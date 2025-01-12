@@ -479,6 +479,17 @@ class Account {
   withdrawl(val) {
     this.deposit(-val);
   }
+
+  approveLoan(val) {
+    return true;
+  }
+
+  requestLoan(val) {
+    if (this.approveLoan(val)) {
+      this.deposit(val);
+      console.log(`Loan approved!`);
+    }
+  }
 }
 
 const acc1 = new Account('Deividas', 'EUR', 1111);
@@ -488,4 +499,8 @@ console.log(acc1);
 
 acc1.deposit(250);
 acc1.withdrawl(150);
+acc1.requestLoan(1000);
+
 console.log(acc1);
+
+console.log(acc1.pin);
