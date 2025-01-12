@@ -516,34 +516,46 @@ console.log('~~~ Encapsulation: Private Class Fields and Methods ~~~');
 // STATIC version of these 4
 
 class Account {
+  locale = navigator.locale;
+  bank = 'Bankist';
+  #mov = []; // Hidden!!!
+  #pin;
   constructor(owner, currency, pin) {
     this.owner = owner;
     this.currency = currency;
-    this.pin = pin;
-    this.mov = [];
-    this.locale = navigator.language;
+    this.#pin = pin;
+    // this.mov = [];
+    // this.locale = navigator.language;
 
     console.log(`Thanks for opening account ${owner}!`);
   }
 
   // Public interface
+  getMov() {
+    return this.#mov;
+  }
+
   deposit(val) {
-    this.mov.push(val);
+    this.#mov.push(val);
   }
 
   withdrawl(val) {
     this.deposit(-val);
   }
 
-  approveLoan(val) {
+  #approveLoan(val) {
     return true;
   }
 
   requestLoan(val) {
-    if (this.approveLoan(val)) {
+    if (this.#approveLoan(val)) {
       this.deposit(val);
       console.log(`Loan approved!`);
     }
+  }
+
+  static test() {
+    console.log('Test!!!');
   }
 }
 
@@ -555,7 +567,11 @@ console.log(acc1);
 acc1.deposit(250);
 acc1.withdrawl(150);
 acc1.requestLoan(1000);
+//acc1.#mov = [];
 
-console.log(acc1);
+console.log('End: ', acc1);
 
 console.log(acc1.pin);
+
+// acc1.test();
+Account.test();
