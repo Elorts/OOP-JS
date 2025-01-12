@@ -195,6 +195,7 @@ console.log('* Static metod /////// *');
 console.log(Number.parseFloat('11A'));
 
 */
+/*
 console.log('* Object.create /////// *');
 
 const PersonProto = {
@@ -217,7 +218,7 @@ steven.calcAge();
 const felix = Object.create(PersonProto);
 felix.init('Felix', 1925);
 felix.calcAge();
-
+*/
 ///////////////////////////////////////
 // Coding Challenge #2
 
@@ -282,6 +283,8 @@ console.log(' speed in mph: ', ford.speed);
 
 // ford.brake();
 */
+
+/*
 console.log('@@@@@@ Inheritance Between "Classes": Constructor Functions');
 
 const Person = function (firstName, birthYear) {
@@ -317,7 +320,7 @@ console.log(mike.__proto__);
 Student.prototype.constructor = Student;
 console.log(mike.__proto__);
 console.dir(Student.prototype.constructor);
-
+*/
 //////////////////////////////////////
 // Coding Challenge #3
 
@@ -331,7 +334,7 @@ DATA CAR 1: 'Tesla' going at 120 km/h, with a charge of 23%
 
 GOOD LUCK 😀
 */
-
+/*
 console.log('Coding challenge 3 ++++++++++++++++++');
 
 const Car = function (make, speed) {
@@ -368,3 +371,53 @@ tesla.accelerate();
 tesla.brake();
 tesla.chargeBattery(100);
 console.log(tesla);
+*/
+
+class PersonCl {
+  constructor(fullName, birthYear) {
+    this.fullName = fullName;
+    this.birthYear = birthYear;
+  }
+
+  // Methods will be added to .prototype property
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  }
+
+  get age() {
+    return 30;
+  }
+
+  // set property that already exists
+
+  set fullName(name) {
+    if (name.includes(' ')) this._fullName = name;
+    else alert('Not a full name!');
+  }
+
+  // instance method
+  get fullName() {
+    return this._fullName;
+  }
+
+  // static metod
+  static hey() {
+    console.log('Hey there 🌛');
+  }
+}
+
+class StudentCl extends PersonCl {
+  constructor(fullName, birthYear, course) {
+    // Allways needs to happen first!
+    super(fullName, birthYear);
+    this.course = course;
+  }
+
+  introduce() {
+    console.log(`My name is ${this.fullName} and I'm studying ${this.course}`);
+  }
+}
+
+const maryte = new StudentCl('Maryte Melninkaite', 2020, 'KPSS History');
+maryte.introduce();
+maryte.calcAge();
