@@ -298,6 +298,7 @@ const Student = function (firstName, birthYear, course) {
   this.course = course;
 };
 
+// Linking prototypes
 Student.prototype = Object.create(Person.prototype);
 
 Student.prototype.introduce = function () {
@@ -308,3 +309,11 @@ const mike = new Student('Mike', 2058, 'Computer Science');
 console.log(mike);
 
 mike.introduce();
+mike.calAge();
+
+console.log(mike instanceof Student);
+console.log(mike instanceof Person);
+console.log(mike.__proto__);
+Student.prototype.constructor = Student;
+console.log(mike.__proto__);
+console.dir(Student.prototype.constructor);
